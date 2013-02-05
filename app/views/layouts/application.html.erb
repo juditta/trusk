@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>TRUSK</title>
+ <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -26,6 +26,7 @@
     </header>
 
     <div class="container">
+      <div class="center hero-unit">
       <% if flash[:notice] %>
         <p class="notice"><%= flash[:notice] %></p>
       <% end %>
@@ -37,6 +38,7 @@
       <% end %>
 
       <%= yield %>
+    </div>
     </div>
 
 </body>
