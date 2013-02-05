@@ -7,9 +7,9 @@ Role.create([
 
 # USER
 User.create([
-	{ email:'superadmin@example.com', encrypted_password:'password' },
-	{ email:'admin@example.com', encrypted_password:'password' },
-	{ email:'jan@example.com', encrypted_password: 'password' }
+	{ email:'superadmin@example.com', encrypted_password:'$2a$10$k0vJJxESIHk3vZ2zaC4ggeEq45hN3hT8IoSteQAvo/nrAmkZGI0oC' },
+	{ email:'admin@example.com', encrypted_password:'$2a$10$k0vJJxESIHk3vZ2zaC4ggeEq45hN3hT8IoSteQAvo/nrAmkZGI0oC' },
+	{ email:'jan@example.com', encrypted_password: '$2a$10$k0vJJxESIHk3vZ2zaC4ggeEq45hN3hT8IoSteQAvo/nrAmkZGI0oC' }
 	])
 
 #USERS ROLES

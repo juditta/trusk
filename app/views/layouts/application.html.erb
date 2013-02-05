@@ -10,20 +10,7 @@
 <![endif]-->
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to "TRUSK", '#', id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Help",    '#' %></li>
-              <li><%= link_to "Sign in", '#' %></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+  <%= render 'shared/header' %>
 
     <div class="container">
       <div class="center hero-unit">
@@ -39,7 +26,8 @@
 
       <%= yield %>
     </div>
+    <%= render 'shared/footer' %>
     </div>
-
+    <%= debug(params) if Rails.env.development? %>
 </body>
 </html>
