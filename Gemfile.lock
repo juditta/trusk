@@ -18,6 +18,14 @@ GIT
       savon
       spree_core (~> 1.0)
 
+GIT
+  remote: git://github.com/spree/spree_i18n.git
+  revision: 00bc1308542a75169825dc29c44e97729fd86a63
+  specs:
+    spree_i18n (1.0.0)
+      i18n (~> 0.6)
+      spree_core
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -271,5 +279,6 @@ DEPENDENCIES
   spree (= 1.3.1)
   spree_auth_devise!
   spree_gateway!
+  spree_i18n!
   sqlite3
   uglifier (>= 1.0.3)
