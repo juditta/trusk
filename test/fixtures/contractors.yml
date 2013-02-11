@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  short_name: MyString
+  name: MyString
+  code: 1
+  city: MyString
+  street: MyString
+  zone_id: 1
+  pesel: 1
+  regon: 1
+  phone1: 1
+  phone2: 1
+  fax: 1
+  email: MyString
+  sale: MyString
+  maturity: 1
+  discount: 1
+  bank_account: 1
+
+two:
+  type: 
+  short_name: MyString
+  name: MyString
+  code: 1
+  city: MyString
+  street: MyString
+  zone_id: 1
+  pesel: 1
+  regon: 1
+  phone1: 1
+  phone2: 1
+  fax: 1
+  email: MyString
+  sale: MyString
+  maturity: 1
+  discount: 1
+  bank_account: 1

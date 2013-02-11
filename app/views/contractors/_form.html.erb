@@ -1,0 +1,85 @@
+<%= form_for(@contractor) do |f| %>
+  <% if @contractor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contractor.errors.count, "error") %> prohibited this contractor from being saved:</h2>
+
+      <ul>
+      <% @contractor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :short_name %><br />
+    <%= f.text_field :short_name %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.number_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :zone_id %><br />
+    <%= f.number_field :zone_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pesel %><br />
+    <%= f.number_field :pesel %>
+  </div>
+  <div class="field">
+    <%= f.label :regon %><br />
+    <%= f.number_field :regon %>
+  </div>
+  <div class="field">
+    <%= f.label :phone1 %><br />
+    <%= f.number_field :phone1 %>
+  </div>
+  <div class="field">
+    <%= f.label :phone2 %><br />
+    <%= f.number_field :phone2 %>
+  </div>
+  <div class="field">
+    <%= f.label :fax %><br />
+    <%= f.number_field :fax %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :sale %><br />
+    <%= f.text_field :sale %>
+  </div>
+  <div class="field">
+    <%= f.label :maturity %><br />
+    <%= f.number_field :maturity %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br />
+    <%= f.number_field :discount %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_account %><br />
+    <%= f.number_field :bank_account %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
