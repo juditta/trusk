@@ -1,5 +1,10 @@
 Trusk::Application.routes.draw do
 
+  resources :contractors
+
+
+  get '/magazyn' => 'magazine#index'
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -9,8 +14,8 @@ Trusk::Application.routes.draw do
         
   devise_for :users
   
-  get "static_pages/home"
-  get "static_pages/contact"
+  get '/home'=> 'static_pages#home'
+  get '/kontakt' => 'static_pages#contact'
 
   root :to => 'home#index'
 

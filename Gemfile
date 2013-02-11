@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '2.1'
 gem 'devise'
 gem 'cancan'
 gem 'rolify'
+gem 'rails-i18n'
 
 
 # Bundle edge Rails instead:
