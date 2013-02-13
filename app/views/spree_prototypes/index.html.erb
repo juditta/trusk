@@ -1,0 +1,23 @@
+<h1>Listing spree_prototypes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @spree_prototypes.each do |spree_prototype| %>
+  <tr>
+    <td><%= spree_prototype.name %></td>
+    <td><%= link_to 'Show', spree_prototype %></td>
+    <td><%= link_to 'Edit', edit_spree_prototype_path(spree_prototype) %></td>
+    <td><%= link_to 'Destroy', spree_prototype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Spree prototype', new_spree_prototype_path %>
