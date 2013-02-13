@@ -13,7 +13,8 @@
   <%= render 'shared/header' %>
 
     <div class="container">
-      <div class="center hero-unit">
+      <div class="hero-unit">
+        <div class="center">
       <% if flash[:notice] %>
         <p class="notice"><%= flash[:notice] %></p>
       <% end %>
@@ -23,7 +24,7 @@
         <% if flash[:alert] %>
         <p class="error"><%= flash[:alert] %></p>
       <% end %>
-
+    </div>
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

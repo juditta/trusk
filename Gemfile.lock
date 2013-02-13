@@ -264,6 +264,7 @@ GEM
     wasabi (3.0.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.0)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
@@ -285,3 +286,4 @@ DEPENDENCIES
   spree_i18n!
   sqlite3
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)

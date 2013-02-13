@@ -1,54 +1,14 @@
 <h1>Listing contractors</h1>
 
-<table>
-  <tr>
-    <th>Type</th>
-    <th>Short name</th>
-    <th>Name</th>
-    <th>Code</th>
-    <th>City</th>
-    <th>Street</th>
-    <th>Zone</th>
-    <th>Pesel</th>
-    <th>Regon</th>
-    <th>Phone1</th>
-    <th>Phone2</th>
-    <th>Fax</th>
-    <th>Email</th>
-    <th>Sale</th>
-    <th>Maturity</th>
-    <th>Discount</th>
-    <th>Bank account</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= form_tag contractors_path, :method => 'get', :id => 'contractors_search' do %>  
+  <p>  
+    <%= text_field_tag :search, params[:search] %>  
+    <%= submit_tag "Search", :name => nil %>  
+  </p>  
+  
+  <div id="contractors"><%= render 'contractors' %></div>
 
-<% @contractors.each do |contractor| %>
-  <tr>
-    <td><%= contractor.type %></td>
-    <td><%= contractor.short_name %></td>
-    <td><%= contractor.name %></td>
-    <td><%= contractor.code %></td>
-    <td><%= contractor.city %></td>
-    <td><%= contractor.street %></td>
-    <td><%= contractor.zone_id %></td>
-    <td><%= contractor.pesel %></td>
-    <td><%= contractor.regon %></td>
-    <td><%= contractor.phone1 %></td>
-    <td><%= contractor.phone2 %></td>
-    <td><%= contractor.fax %></td>
-    <td><%= contractor.email %></td>
-    <td><%= contractor.sale %></td>
-    <td><%= contractor.maturity %></td>
-    <td><%= contractor.discount %></td>
-    <td><%= contractor.bank_account %></td>
-    <td><%= link_to 'Show', contractor %></td>
-    <td><%= link_to 'Edit', edit_contractor_path(contractor) %></td>
-    <td><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<% end %>  
 
 <br />
 

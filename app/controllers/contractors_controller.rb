@@ -2,7 +2,10 @@ class ContractorsController < ApplicationController
   # GET /contractors
   # GET /contractors.json
   def index
-    @contractors = Contractor.all
+    # @contractors = Contractor.search(params[:search])
+    @contractors = Contractor.search(params[:search]).paginate(:per_page => 2, :page => params[:page]) 
+   
+    # @contractors = Contractor.all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,13 +1,12 @@
 class CreateContractors < ActiveRecord::Migration
   def change
     create_table :contractors do |t|
-      t.string :type
+      t.string :type_contractors
       t.string :short_name
       t.string :name
       t.integer :code
       t.string :city
       t.string :street
-      t.integer :zone_id
       t.integer :pesel
       t.integer :regon
       t.integer :phone1
@@ -21,5 +20,6 @@ class CreateContractors < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :contractors, [:type_contractors, :created_at]
   end
 end

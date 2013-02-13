@@ -2,7 +2,7 @@ pl:
 
   fill_all_fields: 'Proszę wypełnić wszystkie pola.'
   send_success: 'Wiadomość została pomyślnie wysłana!'
-
+  more: więcej
   'no': "Nie"
   'yes': "Tak"
   5_biggest_spenders: "5 najwiekszych"
