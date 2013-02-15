@@ -1,15 +1,12 @@
 <h1>Listing contractors</h1>
 
-<%= form_tag contractors_path, :method => 'get', :id => 'contractors_search' do %>  
+<%= form_tag contractors_path, :method => 'get', :id => "contractors_search" do %>  
   <p>  
     <%= text_field_tag :search, params[:search] %>  
     <%= submit_tag "Search", :name => nil %>  
   </p>  
-  
-  <div id="contractors"><%= render 'contractors' %></div>
-
+<div id="contractors"><%= render 'contractors' %></div>
 <% end %>  
-
 <br />
 
 <%= link_to 'New Contractor', new_contractor_path %>

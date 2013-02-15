@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212213720) do
+ActiveRecord::Schema.define(:version => 20130215165847) do
 
   create_table "contractors", :force => true do |t|
     t.string   "type_contractors"
@@ -35,6 +35,29 @@ ActiveRecord::Schema.define(:version => 20130212213720) do
   end
 
   add_index "contractors", ["type_contractors", "created_at"], :name => "index_contractors_on_type_contractors_and_created_at"
+
+  create_table "products", :force => true do |t|
+    t.string   "type_product"
+    t.string   "index"
+    t.string   "name"
+    t.integer  "measure"
+    t.integer  "unit_basic"
+    t.integer  "unit_sale"
+    t.integer  "converter"
+    t.integer  "vat"
+    t.integer  "barcode"
+    t.integer  "expiration_date"
+    t.decimal  "quantity_price"
+    t.decimal  "retial_price"
+    t.decimal  "price_a"
+    t.decimal  "price_b"
+    t.decimal  "state_min"
+    t.decimal  "state_max"
+    t.decimal  "state"
+    t.integer  "spree_products_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "prototypes", :force => true do |t|
     t.string   "name"
@@ -637,6 +660,12 @@ ActiveRecord::Schema.define(:version => 20130212213720) do
   end
 
   create_table "type_contractors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "units", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

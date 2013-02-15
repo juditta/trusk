@@ -1,5 +1,11 @@
 Trusk::Application.routes.draw do
 
+  resources :products
+
+
+  resources :units
+
+
   resources :spree_prototypes
 
 

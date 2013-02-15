@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type_product: MyString
+  index: MyString
+  name: MyString
+  measure: 1
+  unit_basic: 1
+  unit_sale: 1
+  converter: 1
+  vat: 1
+  barcode: 1
+  expiration_date: 1
+  quantity_price: 9.99
+  retial_price: 9.99
+  price_a: 9.99
+  price_b: 9.99
+  state_min: 9.99
+  state_max: 9.99
+  state: 9.99
+  spree_products_id: 1
+
+two:
+  type_product: MyString
+  index: MyString
+  name: MyString
+  measure: 1
+  unit_basic: 1
+  unit_sale: 1
+  converter: 1
+  vat: 1
+  barcode: 1
+  expiration_date: 1
+  quantity_price: 9.99
+  retial_price: 9.99
+  price_a: 9.99
+  price_b: 9.99
+  state_min: 9.99
+  state_max: 9.99
+  state: 9.99
+  spree_products_id: 1
