@@ -14,7 +14,7 @@
 
 <%= render '/delivery_products/list' %>
 
-
+<h2 class="total">TOTAL: <%= number_to_currency(@delivery.total) %></h2>
 
 <%= link_to 'Edit', edit_delivery_path(@delivery) %> |
-<%= link_to 'Back', deliveries_path %>
+<%= link_to 'Back', deliveries_path %> | <%= link_to 'OK', deliveries_path %> | <%= link_to 'Anuluj', delivery, method: :delete, data: { confirm: 'Are you sure?' } %>

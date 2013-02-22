@@ -15,7 +15,7 @@ class DeliveriesController < ApplicationController
   def show
     @delivery = Delivery.find(params[:id])
     session[:delivery]= params[:id].to_s
-    @delivery_products = DeliveryProduct.all
+    @delivery_products = DeliveryProduct.where(:delivery_id => session[:delivery])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @delivery }

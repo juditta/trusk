@@ -3,7 +3,7 @@ class Delivery < ActiveRecord::Base
 
 
   belongs_to :contractor, :foreign_key => "contractor_id"
-  # has_many :delivery_products
+  has_many :delivery_products
 
   def subtotals
   	delivery_products.map  do |i| i.subtotal end
