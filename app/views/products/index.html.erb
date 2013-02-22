@@ -1,57 +1,13 @@
 <h1>Listing products</h1>
 
-<table>
-  <tr>
-    <th>Type product</th>
-    <th>Index</th>
-    <th>Name</th>
-    <th>Measure</th>
-    <th>Unit basic</th>
-    <th>Unit sale</th>
-    <th>Converter</th>
-    <th>Vat</th>
-    <th>Barcode</th>
-    <th>Expiration date</th>
-    <th>Quantity price</th>
-    <th>Retial price</th>
-    <th>Price a</th>
-    <th>Price b</th>
-    <th>State min</th>
-    <th>State max</th>
-    <th>State</th>
-    <th>Spree products</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.type_product %></td>
-    <td><%= product.index %></td>
-    <td><%= product.name %></td>
-    <td><%= product.measure %></td>
-    <td><%= product.unit_basic %></td>
-    <td><%= product.unit_sale %></td>
-    <td><%= product.converter %></td>
-    <td><%= product.vat %></td>
-    <td><%= product.barcode %></td>
-    <td><%= product.expiration_date %></td>
-    <td><%= product.quantity_price %></td>
-    <td><%= product.retial_price %></td>
-    <td><%= product.price_a %></td>
-    <td><%= product.price_b %></td>
-    <td><%= product.state_min %></td>
-    <td><%= product.state_max %></td>
-    <td><%= product.state %></td>
-    <td><%= product.spree_products_id %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+<%= form_tag products_path, :method => 'get', :id => "products_search" do %>  
+  <p>  
+    <%= text_field_tag :search, params[:search] %>  
+    <%= submit_tag "Search", :name => nil %>  
+  </p>  
+<div id="products"><%= render 'products' %></div>
+<% end %>  
 <br />
+
 
 <%= link_to 'New Product', new_product_path %>

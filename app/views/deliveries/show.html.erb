@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contractor:</b>
+  <%= @delivery.contractor_id %>
+</p>
+
+<p>
+  <b>Date delivery:</b>
+  <%= @delivery.date_delivery %>
+</p>
+
+<p>
+  <b>Date order:</b>
+  <%= @delivery.date_order %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @delivery.number %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @delivery.state %>
+</p>
+
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>

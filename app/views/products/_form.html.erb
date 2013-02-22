@@ -1,3 +1,5 @@
+
+
 <%= form_for(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -11,79 +13,109 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div id="conta">
+
+<ul id="bookmarks">
+  <li class="active"><a href="#bar1" class="bar1">Bar</a></li>
+  <li><a href="#bar2" class="bar2">Bar #2</a></li>
+  <li><a href="#bar3" class="bar3">Bar #3</a></li>
+  <li><a href="#bar4" class="bar4">Bar #4</a></li>
+  <li><a href="#bar5" class="bar5">Bar #5</a></li>
+</ul>
+
+<div id="content">
+
+<div id="bar1">
+  <p class="field">
     <%= f.label :type_product %><br />
-    <%= f.text_field :type_product %>
-  </div>
-  <div class="field">
+    <%= f.select :type_product, [ 'materiał', 'półwyrób', 'wyrób'], :prompt => 'Select' %>
+  </p>
+  <p class="field">
     <%= f.label :index %><br />
     <%= f.text_field :index %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
+  </p>
+
+</div>
+
+<div id="bar2">
+  <p class="field">
     <%= f.label :measure %><br />
     <%= f.number_field :measure %>
-  </div>
-  <div class="field">
-    <%= f.label :unit_basic %><br />
-    <%= f.number_field :unit_basic %>
-  </div>
-  <div class="field">
-    <%= f.label :unit_sale %><br />
-    <%= f.number_field :unit_sale %>
-  </div>
-  <div class="field">
-    <%= f.label :converter %><br />
-    <%= f.number_field :converter %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
+    <%= f.label :unit_basic %> 1 
+    <%= f.select :unit_basic, Unit.all.collect {|u| [ u.name, u.id ] }, :prompt => 'Select' %>
+     = <%= f.number_field :converter %>
+    
+    <%= f.select :unit_sale, Unit.all.collect {|u| [ u.name, u.id ] }, :prompt => 'Select' %>
+    <%= f.label :unit_sale %>
+  </p>
+  
+  <p class="field">
     <%= f.label :vat %><br />
-    <%= f.number_field :vat %>
-  </div>
-  <div class="field">
+    <%= f.select :vat,  [ ['3%','3'], ['8%','8'], ['22%','22']], :prompt => 'Select' %>
+  </p>
+  <p class="field">
     <%= f.label :barcode %><br />
     <%= f.number_field :barcode %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :expiration_date %><br />
     <%= f.number_field :expiration_date %>
-  </div>
-  <div class="field">
+  </p>
+</div>
+
+<div id="bar3">  
+  <p class="field">
     <%= f.label :quantity_price %><br />
     <%= f.text_field :quantity_price %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :retial_price %><br />
     <%= f.text_field :retial_price %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :price_a %><br />
     <%= f.text_field :price_a %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :price_b %><br />
     <%= f.text_field :price_b %>
-  </div>
-  <div class="field">
+  </p>
+</div>
+
+
+<div id="bar4">
+  <p class="field">
     <%= f.label :state_min %><br />
     <%= f.text_field :state_min %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :state_max %><br />
     <%= f.text_field :state_max %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :state %><br />
     <%= f.text_field :state %>
-  </div>
-  <div class="field">
+  </p>
+</div>
+
+<div id="bar5">
+  <p class="field">
     <%= f.label :spree_products_id %><br />
     <%= f.number_field :spree_products_id %>
-  </div>
-  <div class="actions">
+  </p>
+</div> 
+
+
+</div>
+
+<div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

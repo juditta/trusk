@@ -11,71 +11,87 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+<div id="conta">
+
+<ul id="bookmarks">
+  <li class="active"><a href="#bar1" class="bar1">Bar</a></li>
+  <li><a href="#bar2" class="bar2">Bar #2</a></li>
+</ul>
+
+<div id="content">
+
+<div id="bar1">
+  <p class="field">
     <%= f.label :type_contractors %><br />
     <%= f.select :type_contractors, [ 'dostawca', 'odbiorca'], :prompt => 'Select One' %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :short_name %><br />
     <%= f.text_field :short_name %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :street %><br />
     <%= f.text_field :street %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p class="field">
     <%= f.label :pesel %><br />
     <%= f.text_field :pesel %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :regon %><br />
     <%= f.text_field :regon %>
-  </div>
-  <div class="field">
+  </p>
+</div>
+<div id="bar2">
+  <p class="field">
     <%= f.label :phone1 %><br />
     <%= f.text_field :phone1 %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :phone2 %><br />
     <%= f.text_field :phone2 %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :fax %><br />
     <%= f.text_field :fax %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :sale %><br />
     <%= f.text_field :sale %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :maturity %><br />
     <%= f.text_field :maturity %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :discount %><br />
     <%= f.text_field :discount %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="field">
     <%= f.label :bank_account %><br />
     <%= f.text_field :bank_account %>
-  </div>
+  </p>
+</div>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

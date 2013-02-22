@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Delivery:</b>
+  <%= @delivery_product.delivery_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @delivery_product.product_id %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @delivery_product.price %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @delivery_product.quantity %>
+</p>
+
+<p>
+  <b>Vat:</b>
+  <%= @delivery_product.vat %>
+</p>
+
+
+<%= link_to 'Edit', edit_delivery_product_path(@delivery_product) %> |
+<%= link_to 'Back', delivery_products_path %>

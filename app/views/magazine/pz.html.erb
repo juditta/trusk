@@ -1,0 +1,26 @@
+<h1>PZ
+	<% if @contractors %>
+	
+<!-- step 1 choose contractors -->
+
+		choose contractor</h1>
+		
+		<%= form_tag contractors_path, :method => 'get', :id => "contractors_search" do %>  
+		  <p>  
+		    <%= text_field_tag :search, params[:search] %>  
+		    <%= submit_tag "Search", :name => nil %>  
+		  </p>  
+		  <div id="contractors"><%= render 'contractors/choose' %></div>
+		<% end %>  
+	
+		<br />
+
+		<%= link_to 'New Contractor', new_contractor_path %>
+
+	<% elsif [:id] %>
+
+<!-- step 2 choose products -->
+
+	     choose products <%= session[:contractor_id] %></h1>
+
+	<% end %>

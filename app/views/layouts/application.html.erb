@@ -8,8 +8,31 @@
   <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+$().ready(function () 
+
+{ 
+
+$("#bookmarks a").click(function()
+  {
+  $("#bookmarks .active").removeClass("active");
+  $(this).parent().addClass("active");
+  var element_index = $("#bookmarks a").index(this);
+  $("#content div:visible").hide();
+  $("#content div").eq(element_index).show();
+  return false;
+  });
+
+});
+</script>
+
 </head>
 <body>
+
+
   <%= render 'shared/header' %>
 
     <div class="container">

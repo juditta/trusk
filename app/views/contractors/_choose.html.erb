@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Nr</th>
+    <th>Short name</th>
+    <th>Adress</th>
+    <th>Nip/Pesel</th>
+    <th></th>
+  </tr>
+
+<% @contractors.each do |contractor| %>
+  <tr>
+    <td><%= contractor.id %></td>
+    <td><%= contractor.short_name %></td>
+    <td><%= contractor.street %>, <%= contractor.code %> <%= contractor.city %> </td>
+    <td><%= contractor.pesel %></td>
+   <td><%= link_to 'Choose', pz_magazine_path(contractor) %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @contractors %> 

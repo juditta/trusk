@@ -3,7 +3,7 @@ class ContractorsController < ApplicationController
   # GET /contractors.json
   def index
     # @contractors = Contractor.search(params[:search])
-    @contractors = Contractor.search(params[:search]).paginate(:per_page => 2, :page => params[:page]) 
+    @contractors = Contractor.search(params[:search]).paginate(:per_page => 15, :page => params[:page]) 
    
     # @contractors = Contractor.all
 
@@ -82,5 +82,7 @@ class ContractorsController < ApplicationController
       format.html { redirect_to contractors_url }
       format.json { head :no_content }
     end
+  end
+
   end
 end
