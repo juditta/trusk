@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+<!-- MAGAZYN -->
+	<% if session[:modul]== 'magazyn' %>
+		<ul class="front-list">
+			<li></li>
+			<li><a href="/produkcja"><i></i>Produkcja</a></li>
+			<li><a href="/e-sklep/admin"><i></i>Sklep-Admin</a></li>
+			<li><a href="/kartoteki"><i></i>Kartoteki</a></li>
+			<li><a href="/raporty"><i></i>Raporty</a></li>
+			<li><a href="/administrator"><i></i>Administrator</a></li>	
+		</ul>
+	<% elsif %>
+<!-- HOME -->
+		<ul class="front-list">
+			<li><%= link_to 'Magazyn', modul_path('magazyn') %></li>
+			<li><a href="/produkcja"><i></i>Produkcja</a></li>
+			<li><a href="/e-sklep/admin"><i></i>Sklep-Admin</a></li>
+			<li><a href="/kartoteki"><i></i>Kartoteki</a></li>
+			<li><a href="/raporty"><i></i>Raporty</a></li>
+			<li><a href="/administrator"><i></i>Administrator</a></li>	
+		</ul>
+
+	<% end %>
+
+<% else %>
+<h1>Trusk</h1>
+<% end %>

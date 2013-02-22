@@ -1,29 +1,19 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <b>Contractor:</b>
-  <%= @delivery.contractor_id %>
-</p>
-
-<p>
-  <b>Date delivery:</b>
+  <b>Date delivery: 
   <%= @delivery.date_delivery %>
-</p>
-
-<p>
-  <b>Date order:</b>
-  <%= @delivery.date_order %>
-</p>
-
-<p>
+  <%= session[:delivery] %>
   <b>Number:</b>
   <%= @delivery.number %>
-</p>
+  <br />
+  <b>Contractor: 
+  <%= @delivery.contractor.name %> adress: <%= @delivery.contractor.street %> <%= @delivery.contractor.code %> <%= @delivery.contractor.city %>  tel: <%= @delivery.contractor.phone1 %>
 
-<p>
-  <b>State:</b>
-  <%= @delivery.state %>
 </p>
+<%= link_to 'New Delivery product', new_delivery_product_path %>
+
+<%= render '/delivery_products/list' %>
+
 
 
 <%= link_to 'Edit', edit_delivery_path(@delivery) %> |

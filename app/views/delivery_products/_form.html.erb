@@ -12,12 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :delivery_id %><br />
-    <%= f.number_field :delivery_id %>
+    <%= f.hidden_field :delivery_id, :value => session[:delivery] %>
   </div>
   <div class="field">
     <%= f.label :product_id %><br />
-    <%= f.number_field :product_id %>
+    <%= f.select :product_id, Product.all.collect { |p| [ p.name, p.id ] }, :prompt => 'Select' %>
   </div>
   <div class="field">
     <%= f.label :price %><br />

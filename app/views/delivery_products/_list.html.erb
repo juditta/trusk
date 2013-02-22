@@ -1,32 +1,26 @@
-
-<h1>Listing delivery_products</h1>
-
 <table>
   <tr>
-    <th>Delivery</th>
     <th>Product</th>
     <th>Price</th>
-    <th>Quantity</th>
     <th>Vat</th>
-    <th></th>
+    <th>Price brutto</th>
+    <th>Quantity</th>
+    <th>Amount</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @delivery_products.each do |delivery_product| %>
   <tr>
-    <td><%= delivery_product.delivery_id %></td>
     <td><%= delivery_product.product.name %></td>
     <td><%= delivery_product.price %></td>
-    <td><%= delivery_product.quantity %></td>
     <td><%= delivery_product.vat %></td>
-    <td><%= link_to 'Show', delivery_product %></td>
+    <td><%= delivery_product.price_brutto %></td>
+    <td><%= delivery_product.quantity %></td>
+    <td><%= delivery_product.subtotal %></td>
+    
     <td><%= link_to 'Edit', edit_delivery_product_path(delivery_product) %></td>
     <td><%= link_to 'Destroy', delivery_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Delivery product', new_delivery_product_path %>

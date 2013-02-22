@@ -21,10 +21,11 @@ Trusk::Application.routes.draw do
   resources :contractors
 
 
-  match '/magazyn' => 'magazine#index'
-  match '/magazyn/pz' => 'magazine#pz'
+ 
+  match '/magazyn/pz' => 'deliveries#new'
   match '/magazyn/pz/:id'  => 'magazine#pz', :as => 'pz_magazine'
   match 'magazyn/wz'  => 'magazine#wz'
+  match '/:modul' => 'application#index', :as => 'modul'
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -38,7 +39,7 @@ Trusk::Application.routes.draw do
   get '/home'=> 'static_pages#home'
   get '/kontakt' => 'static_pages#contact'
 
-  root :to => 'home#index'
+  root :to => 'application#index'
 
   #resources :users
   

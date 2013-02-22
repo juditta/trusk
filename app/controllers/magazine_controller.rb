@@ -1,5 +1,5 @@
 class MagazineController < ApplicationController
-	layout	"magazine"
+	# layout	"magazine"
 
   def index
   end
@@ -7,7 +7,8 @@ class MagazineController < ApplicationController
   def pz
 
 
-  	if [:id]
+  	if params[:id]
+      
   		session[:contractor_id] = params[:id]
 
   	else

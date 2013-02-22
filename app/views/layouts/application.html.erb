@@ -32,10 +32,27 @@ $("#bookmarks a").click(function()
 </head>
 <body>
 
-
+<!-- MENU MAIN -->
   <%= render 'shared/header' %>
+  
+
 
     <div class="container">
+<!-- MENU MODULE-->
+      <% if user_signed_in? %>
+      
+      <h1 class="modul-title"><%= session[:modul] %></h1>
+
+       <% case session[:modul]
+          when 'magazyn' %>
+          <%= render 'shared/nav_magazine' %>
+       <% when 'produkcja' %>
+          <h1>layout "produkcja</h1>"
+        <% end
+      end %>
+
+
+<!-- FLASH MESSAGE -->
       <div class="hero-unit">
         <div class="center">
       <% if flash[:notice] %>
@@ -48,6 +65,7 @@ $("#bookmarks a").click(function()
         <p class="error"><%= flash[:alert] %></p>
       <% end %>
     </div>
+<!-- CONTENT -->
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

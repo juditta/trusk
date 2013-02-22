@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
   # end
   
   protect_from_forgery
+
+
+  def index
+  	if params[:modul]
+  	 	session[:modul]=params[:modul]
+  	end
+  end
 end
