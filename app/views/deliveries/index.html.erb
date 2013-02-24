@@ -1,7 +1,8 @@
 <h1>Listing deliveries</h1>
 
-<table>
+<table class="table-list">
   <tr>
+    <th>Lp</th>
     <th>Contractor</th>
     <th>Date delivery</th>
     <th>Date order</th>
@@ -12,8 +13,9 @@
     <th></th>
   </tr>
 
-<% @deliveries.each do |delivery| %>
+<% @deliveries.each_with_index do |delivery, i| %>
   <tr>
+    <td class="center"><%= i+1 %></td>
     <td><%= delivery.contractor.name %></td>
     <td><%= delivery.date_delivery %></td>
     <td><%= delivery.date_order %></td>

@@ -3,6 +3,7 @@ class Contractor < ActiveRecord::Base
 
   # belongs_to :type_contractor
   has_many :deliveries
+  has_many :orders
 
   def self.search(search)  
     if search  

@@ -1,8 +1,12 @@
 class DeliveryProduct < ActiveRecord::Base
-  attr_accessible :delivery_id, :price, :product_id, :quantity, :vat
+  attr_accessible :delivery_id, :price, :product_id, :quantity
 
   belongs_to :product, :foreign_key => "product_id"
   belongs_to :delivery, :foreign_key => "delivery_id"
+
+  def vat
+  	product.vat
+  end
 
   def price_brutto
   	price+(price*vat*0.01)
@@ -12,5 +16,8 @@ class DeliveryProduct < ActiveRecord::Base
   	quantity*price_brutto
   end
 
+  def add_state
+  	product.state+(product.converter*quantity)
+  end
 
 end

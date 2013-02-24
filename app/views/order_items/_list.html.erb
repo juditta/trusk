@@ -1,0 +1,29 @@
+<table class="table-list">
+  <tr>
+    <th>Lp</th>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Vat</th>
+    <th>Price brutto</th>
+    <th>Quantity</th>
+    <th>Amount</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @order_items.each_with_index do |order_item, i| %>
+  <tr>
+    
+    <td class="center"><%= i+1 %></td>
+    <td><%= order_item.product.name %></td>
+    <td class="right"><%= number_to_currency(order_item.price)%></td>
+    <td class="right"><%= order_item.product.vat %> %</td>
+    <td class="right"><%= number_to_currency(order_item.price_brutto) %></td>
+    <td class="right"><%= order_item.quantity %></td>
+    <td class="right"><%= number_to_currency(order_item.subtotal)%></td>
+    
+    <td class="center"><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
+    <td class="center"><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

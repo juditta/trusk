@@ -28,15 +28,15 @@ Delivery.create([
 
 #DELIVER_PRODUCTS
 DeliveryProduct.create([
-	{ delivery_id: '1', product_id: '1', price: '2.00', quantity: '30', vat: '22'},
-	{ delivery_id: '1', product_id: '2', price: '4.00', quantity: '40', vat: '22'},
-	{ delivery_id: '1', product_id: '3', price: '2.00', quantity: '15', vat: '8'},
-	{ delivery_id: '2', product_id: '1', price: '2.00', quantity: '30', vat: '22'},
-	{ delivery_id: '2', product_id: '2', price: '4.00', quantity: '40', vat: '22'},
-	{ delivery_id: '3', product_id: '3', price: '2.00', quantity: '15', vat: '8'},
-	{ delivery_id: '3', product_id: '1', price: '2.00', quantity: '30', vat: '22'},
-	{ delivery_id: '4', product_id: '2', price: '4.00', quantity: '20', vat: '22'},
-	{ delivery_id: '4', product_id: '3', price: '2.00', quantity: '55', vat: '8'}
+	{ delivery_id: '1', product_id: '1', price: '2.00', quantity: '30'},
+	{ delivery_id: '1', product_id: '2', price: '4.00', quantity: '40'},
+	{ delivery_id: '1', product_id: '3', price: '2.00', quantity: '15'},
+	{ delivery_id: '2', product_id: '1', price: '2.00', quantity: '30'},
+	{ delivery_id: '2', product_id: '2', price: '4.00', quantity: '40'},
+	{ delivery_id: '3', product_id: '3', price: '2.00', quantity: '15'},
+	{ delivery_id: '3', product_id: '1', price: '2.00', quantity: '30'},
+	{ delivery_id: '4', product_id: '2', price: '4.00', quantity: '20'},
+	{ delivery_id: '4', product_id: '3', price: '2.00', quantity: '55'}
 	])
 
 #PRODUCT

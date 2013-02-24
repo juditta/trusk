@@ -1,6 +1,6 @@
 <%= form_for(@delivery_product) do |f| %>
   <% if @delivery_product.errors.any? %>
-    <div id="error_explanation">
+    <li id="error_explanation">
       <h2><%= pluralize(@delivery_product.errors.count, "error") %> prohibited this delivery_product from being saved:</h2>
 
       <ul>
@@ -11,26 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+ 
     <%= f.hidden_field :delivery_id, :value => session[:delivery] %>
-  </div>
-  <div class="field">
-    <%= f.label :product_id %><br />
-    <%= f.select :product_id, Product.all.collect { |p| [ p.name, p.id ] }, :prompt => 'Select' %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br />
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :vat %><br />
-    <%= f.number_field :vat %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <ul class="ul-field item-field">
+    <li class='li-select'>
+      <%= f.label :product_id %>: 
+      <%= f.select :product_id, Product.all.collect { |p| [ p.name, p.id ] }, :prompt => 'Select' %>
+    </li>
+    <li >
+      <%= f.label :price %>: 
+      <%= f.text_field :price %>
+    </li>
+    <li >
+      <%= f.label :quantity %>:
+      <%= f.number_field :quantity %>
+    </li>
+    <li class="actions">
+      <%= f.submit %>
+    </li>
+  </ul>
 <% end %>

@@ -1,6 +1,31 @@
 class DeliveriesController < ApplicationController
   # GET /deliveries
   # GET /deliveries.json
+  def confirm
+    @delivery = Delivery.find(params[:id])
+    
+    if @delivery.state?
+      respond_to do |format|
+        format.html { redirect_to delivery_url } #:flash => { :error => "Ten towar już został przyjęty" }# 
+        format.json { head :no_content }
+      end
+    else
+      # add_state 
+      for delivery_product in @delivery.delivery_products 
+        @product = Product.find(delivery_product.product_id)
+        @product.update_attributes(:state => delivery_product.add_state )
+      end 
+      @delivery.update_attributes(:state => '1')
+      session[:delivery]= ''
+      respond_to do |format|
+        format.html { redirect_to delivery_url }
+        format.json { head :no_content }
+      end
+  end
+  end
+
+
+
   def index
     @deliveries = Delivery.all
 
@@ -15,6 +40,7 @@ class DeliveriesController < ApplicationController
   def show
     @delivery = Delivery.find(params[:id])
     session[:delivery]= params[:id].to_s
+    @delivery_product = DeliveryProduct.new
     @delivery_products = DeliveryProduct.where(:delivery_id => session[:delivery])
     respond_to do |format|
       format.html # show.html.erb
@@ -75,7 +101,7 @@ class DeliveriesController < ApplicationController
   def destroy
     @delivery = Delivery.find(params[:id])
     @delivery.destroy
-
+    session[:delivery]= ''
     respond_to do |format|
       format.html { redirect_to deliveries_url }
       format.json { head :no_content }

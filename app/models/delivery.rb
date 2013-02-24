@@ -3,7 +3,7 @@ class Delivery < ActiveRecord::Base
 
 
   belongs_to :contractor, :foreign_key => "contractor_id"
-  has_many :delivery_products
+  has_many :delivery_products, :dependent => :destroy
 
   def subtotals
   	delivery_products.map  do |i| i.subtotal end
@@ -12,6 +12,14 @@ class Delivery < ActiveRecord::Base
   def total 
   	subtotals.sum
   end
+
+  def add_state
+    delivery_products.map  do |i| 
+      i.product.state +(i.product.converter*i.qantity)
+    end
+  end
+
+  
 
   # def total
   # 	delivery_products.map |i| i.subtotal end.sum

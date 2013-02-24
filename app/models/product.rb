@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :unit, :foreign_key => "unit_sale"
   has_many :delivery_products 
+  has_many :order_items
   # belongs_to :unit, :foreign_key => "unit_basic"
 
   

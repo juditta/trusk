@@ -1,0 +1,34 @@
+<%= form_for(@order_item) do |f| %>
+  <% if @order_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order_item.errors.count, "error") %> prohibited this order_item from being saved:</h2>
+
+      <ul>
+      <% @order_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= f.hidden_field :order_id, :value => session[:order] %>
+
+  <ul class="ul-field item-field">
+    <li class='li-select'>
+    <%= f.label :product_id %>: 
+    <%= f.select :product_id, Product.all.collect { |p| [ p.name, p.id ] }, :prompt => 'Select' %>
+    </li>
+    <li>
+    <%= f.label :price %>: 
+    <%= f.text_field :price %>
+    </li>
+    <li>
+    <%= f.label :quantity %>: 
+    <%= f.text_field :quantity %>
+    </li>
+   <li class="actions">
+    <%= f.submit %>
+  </li>
+</ul>
+<% end %>

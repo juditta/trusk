@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 
   def index
-  	if params[:modul]
+  	if params[:modul] == 'magazyn' || params[:modul] == 'produkcja' || params[:modul] == 'kartoteki'
   	 	session[:modul]=params[:modul]
   	end
   end

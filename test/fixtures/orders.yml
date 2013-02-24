@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contractor_id: 1
+  date_order: 2013-02-23
+  date_delivery: 2013-02-23
+  state: 1
+  number: MyString
+
+two:
+  contractor_id: 1
+  date_order: 2013-02-23
+  date_delivery: 2013-02-23
+  state: 1
+  number: MyString

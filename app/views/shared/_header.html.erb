@@ -9,17 +9,17 @@
           <li><%= link_to "Help",    '#' %></li>
           <li>
             <% if user_signed_in? %>
-                <a href="users/edit/<%= current_user.id %>"><%= current_user.email %></a> 
+                <a href="users/<%= current_user.id %>/edit/"><%= current_user.email %></a> 
               
                 
                 </li>
                 <li>
                 <%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
                 <% else-%>
-                <%= link_to "Sign in", 'users/sign_in' %>
+                <%= link_to "Sign in", '/users/sign_in' %>
                 </li>
                 <li>
-                <%= link_to "Sign up", 'users/sign_up' %>
+                <%= link_to "Sign up", '/users/sign_up' %>
             <% end -%>
           </li>
         </ul>

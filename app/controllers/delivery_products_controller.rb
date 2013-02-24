@@ -44,8 +44,8 @@ class DeliveryProductsController < ApplicationController
 
     respond_to do |format|
       if @delivery_product.save
-        format.html { redirect_to @delivery_product, notice: 'Delivery product was successfully created.' }
-        format.json { render json: @delivery_product, status: :created, location: @delivery_product }
+        format.html { redirect_to delivery_url(@delivery_product.delivery_id), notice: 'Delivery product was successfully created.' }
+        # format.json { render json: @delivery_product, status: :created, location: @delivery_product }
       else
         format.html { render action: "new" }
         format.json { render json: @delivery_product.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class DeliveryProductsController < ApplicationController
 
     respond_to do |format|
       if @delivery_product.update_attributes(params[:delivery_product])
-        format.html { redirect_to @delivery_product, notice: 'Delivery product was successfully updated.' }
+        format.html { redirect_to delivery_url(@delivery_product.delivery_id), notice: 'Delivery product was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

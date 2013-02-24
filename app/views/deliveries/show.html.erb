@@ -1,20 +1,43 @@
 
-<p>
-  <b>Date delivery: 
-  <%= @delivery.date_delivery %>
-  <%= session[:delivery] %>
-  <b>Number:</b>
-  <%= @delivery.number %>
-  <br />
-  <b>Contractor: 
-  <%= @delivery.contractor.name %> adress: <%= @delivery.contractor.street %> <%= @delivery.contractor.code %> <%= @delivery.contractor.city %>  tel: <%= @delivery.contractor.phone1 %>
+<ul class="ul-block ul-document-data">
+  <li class="left">
+      <b>Contractor:</b>
+  </li>
+  <li class="left width60">
+      <b><%= @delivery.contractor.name %></b><br />
+      <%= @delivery.contractor.street %>, <%= @delivery.contractor.code %> <%= @delivery.contractor.city %><br />
+      tel: <%= @delivery.contractor.phone1 %>  NIP: <%= @delivery.contractor.pesel %>
+  </li>
+  <li class="right">
+    <b>Number: <%= @delivery.number %></b><br />
+    Date delivery: <%= @delivery.date_order %><br />
+  </li>
+</ul>
 
-</p>
-<%= link_to 'New Delivery product', new_delivery_product_path %>
+<div class="clear"></div>
+<% if @delivery.state.nil? %>
+	 <%= render '/delivery_products/form' %>
+	<% else %>
+	<h3 class="center">Towar Dodany</h3>
+<% end %>
+
 
 <%= render '/delivery_products/list' %>
 
 <h2 class="total">TOTAL: <%= number_to_currency(@delivery.total) %></h2>
 
-<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
-<%= link_to 'Back', deliveries_path %> | <%= link_to 'OK', deliveries_path %> | <%= link_to 'Anuluj', delivery, method: :delete, data: { confirm: 'Are you sure?' } %>
+<ul class="ul-field ul-actions">
+	<li><%= link_to 'Edit', edit_delivery_path(@delivery) %></li>
+	<li><%= link_to 'Back', deliveries_path %></li>
+	<li>
+		<% if @delivery.state.nil? %>
+			<%= link_to 'Confirm', confirm_delivery_path(@delivery) %> 
+		<% else %>
+			<%= link_to 'Confirm', delivery_path, :flash => { :error => "Ten towar już został przyjęty" } %> 
+		<% end %>
+	</li>
+	<li><%= link_to 'Delate', @delivery, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+
+</ul>
+
+

@@ -1,0 +1,41 @@
+<ul class="ul-block ul-document-data">
+  <li class="left">
+      <b>Contractor:</b>
+  </li>
+  <li class="left width60">
+      <b><%= @order.contractor.name %></b><br />
+      <%= @order.contractor.street %>, <%= @order.contractor.code %> <%= @order.contractor.city %><br />
+      tel: <%= @order.contractor.phone1 %>  NIP: <%= @order.contractor.pesel %>
+  </li>
+  <li class="right">
+    <b>Number: <%= @order.number %></b><br />
+    Date delivery: <%= @order.date_delivery %><br />
+  </li>
+</ul>
+
+  
+<div class="clear"></div>
+<% if @order.state.nil? %>
+   <%= render '/order_items/form' %>
+  <% else %>
+  <h3 class="center">Towar wydany</h3>
+<% end %>
+
+
+
+<%= render '/order_items/list' %>
+
+<h2 class="total">TOTAL: <%= number_to_currency(@order.total) %></h2>
+
+<ul class="ul-field ul-actions"> 
+  <li><%= link_to 'Edit', edit_order_path(@order) %></li>
+  <li><%= link_to 'Back', orders_path %> </li>
+  <li><% if @order.state.nil? %>
+      <%= link_to 'Confirm', confirm_order_path(@order) %> 
+    <% else %>
+      <%= link_to 'Confirm', order_path, :flash => { :error => "Ten towar już został wydany" } %> 
+    <% end %>
+  </li>
+  <li><%= link_to 'Delate', @order, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+</ul>
+

@@ -1,5 +1,6 @@
-<table>
+<table class="table-list">
   <tr>
+    <th>Lp</th>
     <th>Product</th>
     <th>Price</th>
     <th>Vat</th>
@@ -10,17 +11,18 @@
     <th></th>
   </tr>
 
-<% @delivery_products.each do |delivery_product| %>
+<% @delivery_products.each_with_index do |delivery_product, i| %>
   <tr>
+    <td class="center"><%= i+1 %></td>
     <td><%= delivery_product.product.name %></td>
-    <td><%= number_to_currency(delivery_product.price)%></td>
-    <td><%= delivery_product.vat %> %</td>
-    <td><%= number_to_currency(delivery_product.price_brutto) %></td>
-    <td><%= delivery_product.quantity %></td>
-    <td><%= number_to_currency(delivery_product.subtotal)%></td>
+    <td class="right"><%= number_to_currency(delivery_product.price)%></td>
+    <td class="right"><%= delivery_product.vat %> %</td>
+    <td class="right"><%= number_to_currency(delivery_product.price_brutto) %></td>
+    <td class="right"><%= delivery_product.quantity %></td>
+    <td class="right"><%= number_to_currency(delivery_product.subtotal)%></td>
     
-    <td><%= link_to 'Edit', edit_delivery_product_path(delivery_product) %></td>
-    <td><%= link_to 'Destroy', delivery_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="center"><%= link_to 'Edit', edit_delivery_product_path(delivery_product) %></td>
+    <td class="center"><%= link_to 'Destroy', delivery_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
