@@ -35,6 +35,23 @@ textarea {resize: vertical;}
     margin-bottom: 10px;
   }
 }
+.margin30{margin: 0 30px;}
+.field{
+  input{
+    height: 30px;
+  }
+}
+.product-measture{
+  float: right;
+  li{
+    font-weight: 20px;
+    display: block;
+    float: right;
+    margin: 10px 0 20px 20px;
+    text-transform: uppercase;
+    width: auto !important;
+  }
+}
 .ul-block, .nav-modul{ 
   clear: both;
   margin: 20px 0;
@@ -107,6 +124,10 @@ p {
 b{
   font-weight: bold;
 }
+hr{
+  clear: both;
+  margin: 20px 0;
+}
 /* header */
 
 #logo {
@@ -129,6 +150,7 @@ b{
 	height: 500px;
 	
 	li{
+    text-align: center;
 		display: block;
 		float: left;
 		width: 230px;
@@ -214,9 +236,9 @@ display: block;
 padding-top: 5px;
 text-align: center;
 }
-#bookmarks li a { text-decoration: none; color: #000; }
-#bookmarks li.active { background: url('gfx/butt1.jpg') no-repeat; color: #fff; }
-#bookmarks li.active a { color: #fff; }
+#bookmarks li a { text-decoration: none; color: #000; text-transform: uppercase; font-weight: bold;}
+#bookmarks li.active { background: url('gfx/butt1.jpg') no-repeat; color: #396B8C; }
+#bookmarks li.active a { color: #396B8C; }
 #bar1, #bar2, #bar3, #bar4, #bar5 { color: #fff; padding: 10px; background: #396B8C; display: none;}
 #bar1 { display: block; }
 
@@ -260,6 +282,42 @@ text-align: center;
   }
 }
 /* FIELDS */
+.l-unit-sale{margin-left: 100px;}
+#product_name{width: 80%;}
+#product_unit_basic, #product_unit_sale, #product_converter, #product_measure, #product_expiration_date 
+  {width: 80px;}
+.product-price-filed{
+  width: 80% !important;
+  margin: 0 10%;
+  li
+  {
+    width: 100px;
+    line-height: 38px;
+    input{
+      width: 80px;
+      text-align: right;
+      height: 30px;
+    }
+    select{
+      width: 60px
+    }
+  }
+  .product-vat{
+    text-align: center;
+    font-weight: bold;
+    width: 120px;
+    padding-top: 58px;
+  }
+}
+.product-field{
+  li{
+    width: 35%;
+    margin-left: 12%;
+  .f-exp-date{
+    margin-left:50px;
+  }
+  }
+}
 .item-field{
   li{
     width: 20%;
@@ -267,6 +325,7 @@ text-align: center;
       width: 70px;
     }
   }
+
   .li-select{
       width: 40%;
     }

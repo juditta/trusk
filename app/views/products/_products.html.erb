@@ -1,5 +1,6 @@
-<table>
+<table class="table-list">
   <tr>
+    <th>Lp</th>
     <th>Name</th>
     <th>Index</th>
     <th>State</th>
@@ -12,15 +13,20 @@
     <th></th>
   </tr>
 
-<% @products.each do |product| %>
+<% @products.each_with_index do |product, i| %>
   <tr>
+    <td class="center"><%= i+1 %></td>
     <td><%= product.name %></td>
     <td><%= product.index %></td>
-    <td><%= product.state %></td>
-    <td><%= product.unit.name%></td>
-    <td><%= price_netto=product.quantity_price %></td>
-    <td><%= vat=product.vat %> %</td>
-    <td><%= price_brutto=price_netto+(price_netto*vat*0.01)%></td>
+    <td class="right"><%= product.state %></td>
+    <td class="right"><% if product.unit_sale? %>
+
+        <%= product.unit.name %>
+        <% end %>
+    </td>
+    <td class="right"><%= number_to_zl(product.quantity_price) %></td>
+    <td class="right"><%= product.vat %> %</td>
+    <td class="right"><%= number_to_zl(product.price_brutto) %></td>
 
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>

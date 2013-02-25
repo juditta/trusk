@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  type_product: MyString
   index: MyString
   name: MyString
   measure: 1
@@ -21,7 +20,6 @@ one:
   spree_products_id: 1
 
 two:
-  type_product: MyString
   index: MyString
   name: MyString
   measure: 1

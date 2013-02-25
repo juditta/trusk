@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223220953) do
+ActiveRecord::Schema.define(:version => 20130225203713) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "contractors", :force => true do |t|
     t.string   "type_contractors"
@@ -59,10 +65,10 @@ ActiveRecord::Schema.define(:version => 20130223220953) do
     t.integer  "order_id"
     t.integer  "product_id"
     t.integer  "state"
-    t.decimal  "quantity"
-    t.decimal  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "quantity",                                 :null => false
+    t.decimal  "price",      :precision => 8, :scale => 2, :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "orders", :force => true do |t|
@@ -76,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20130223220953) do
   end
 
   create_table "products", :force => true do |t|
-    t.string   "type_product"
     t.string   "index"
     t.string   "name"
     t.integer  "measure"
@@ -96,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130223220953) do
     t.integer  "spree_products_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "category_id"
   end
 
   create_table "prototypes", :force => true do |t|

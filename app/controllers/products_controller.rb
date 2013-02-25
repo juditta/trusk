@@ -1,12 +1,16 @@
 class ProductsController < ApplicationController
+  skip_authorization_check
   # GET /products
   # GET /products.json
   def index
-    @products = Product.search(params[:search]).paginate(:per_page => 2, :page => params[:page]) 
+    @products = Product.search(params[:search]).paginate(:per_page => 15, :page => params[:page]) 
+    @product = Product.new
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
+      format.html
+        format.json { render json: @products }
+        format.json { render json: @product }
+
     end
   end
 
@@ -47,10 +51,11 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render json: @product, status: :created, location: @product }
       else
-        format.html { render action: "new" }
+        format.html { render action: "index" }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /products/1

@@ -39,18 +39,25 @@ DeliveryProduct.create([
 	{ delivery_id: '4', product_id: '3', price: '2.00', quantity: '55'}
 	])
 
+#CATEGORY PRODUCT
+Category.create([
+	{ name: 'wyrob' },
+	{ name: 'polproduct' },
+	{ name: 'material' },
+	{ name: 'opakowanie' }
+	])
+
 #PRODUCT
 Product.create([
-	{ type_product: 'material', index: 'm-o-m', name: 'malina', measure: '', unit_basic:'3', unit_sale:'3', converter: '1', 
+	{ category_id: '3', index: 'm-o-m', name: 'malina', measure: '', unit_basic:'3', unit_sale:'3', converter: '1', 
 		vat:'3', barcode:'13267876813', expiration_date: '2', quantity_price:'3.00', retial_price: '3.50', 
 		price_a: '2.90', price_b: '2.80', state_min: '100', state_max: '500', state: '200', spree_products_id: ''},
-	{ type_product: 'material', index: 'm-o-w', name: "wisnia", measure: '', unit_basic:'3', unit_sale:'3', converter: '1', 
+	{ category_id: '3', index: 'm-o-w', name: "wisnia", measure: '', unit_basic:'3', unit_sale:'3', converter: '1', 
 		vat:'3', barcode:'54367876813', expiration_date: '2', quantity_price:'4.00', retial_price: '4.50', 
 		price_a: '3.90', price_b: '3.80', state_min: '100', state_max: '500', state: '200', spree_products_id: ''},
-	{ type_product: 'material', index: 'm-op-s0.5', name: "sloik 0.5", measure: '', unit_basic:'1', unit_sale:'1', converter: '1', 
+	{ category_id: '4', index: 'm-op-s0.5', name: "sloik 0.5", measure: '', unit_basic:'1', unit_sale:'1', converter: '1', 
 		vat:'3', barcode:'87687876813', expiration_date: '', quantity_price:'0.50', retial_price: '0.60', 
 		price_a: '0.45', price_b: '0.43', state_min: '100', state_max: '1000', state: '200', spree_products_id: ''}
-	
 	])
 # #ROLE
 # Role.create([

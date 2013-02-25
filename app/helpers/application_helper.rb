@@ -9,4 +9,8 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def number_to_zl(amount)
+  	number_to_currency(amount, :unit=>'zl', :precision => 2, format: "%n %u")
+  end
 end

@@ -1,5 +1,10 @@
 Trusk::Application.routes.draw do
 
+
+
+  resources :categories
+
+
   resources :order_items do
     resources :orders
   end
