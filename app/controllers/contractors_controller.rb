@@ -44,11 +44,12 @@ class ContractorsController < ApplicationController
   # POST /contractors.json
   def create
     @contractor = Contractor.new(params[:contractor])
-
+    
+    
     respond_to do |format|
       if @contractor.save
-        format.html { redirect_to @contractor, notice: 'Contractor was successfully created.' }
-        format.json { render json: @contractor, status: :created, location: @contractor }
+        format.html { redirect_to @contractors, notice: 'Contractor was successfully created.' }
+        
       else
         format.html { render action: "new" }
         format.json { render json: @contractor.errors, status: :unprocessable_entity }

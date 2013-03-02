@@ -7,7 +7,7 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 gem 'rails-i18n'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate'
 
 
 # Bundle edge Rails instead:

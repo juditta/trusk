@@ -8,8 +8,12 @@ class ApplicationController < ActionController::Base
 
 
   def index
-  	if params[:modul] == 'magazyn' || params[:modul] == 'produkcja' || params[:modul] == 'kartoteki'
+  	if params[:modul] == 'zaopatrzenie' || params[:modul] == 'produkcja' || params[:modul] == 'sprzedaz'
   	 	session[:modul]=params[:modul]
-  	end
+  	elsif 
+  		params[:modul] == 'moduly'
+  		session[:modul] = nil
+   		# redirect_to root_url
+  	end 
   end
 end

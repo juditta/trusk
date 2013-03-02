@@ -101,9 +101,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 24px;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -128,6 +128,16 @@ hr{
   clear: both;
   margin: 20px 0;
 }
+.hero-unit{
+  padding: 30px;
+}
+.hero-unit h1 {
+  margin-bottom: 0;
+  font-size: 24px;
+  line-height: 1;
+  color: inherit;
+  letter-spacing: -1px;
+}
 /* header */
 
 #logo {
@@ -145,6 +155,7 @@ hr{
     text-decoration: none;
   }
 }
+
 /*content*/
 .front-list{
 	height: 500px;
@@ -282,6 +293,7 @@ text-align: center;
   }
 }
 /* FIELDS */
+#search{height: 33px}
 .l-unit-sale{margin-left: 100px;}
 #product_name{width: 80%;}
 #product_unit_basic, #product_unit_sale, #product_converter, #product_measure, #product_expiration_date 

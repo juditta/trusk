@@ -40,17 +40,17 @@ $("#bookmarks a").click(function()
     <div class="container">
 <!-- MENU MODULE-->
       <% if user_signed_in? %>
-      
+
       <h1 class="modul-title"><%= session[:modul] %></h1>
-
        <% case session[:modul]
-          when 'magazyn' %>
-          <%= render 'shared/nav_magazine' %>
+          when 'zaopatrzenie' %>
+          <%= render 'shared/nav_zaopatrzenie' %>
        <% when 'produkcja' %>
-          <h1>layout "produkcja</h1>"
-        <% end
-      end %>
-
+          <%= render 'shared/nav_produkcja' %>
+         <% when 'sprzedaz' %>
+          <%= render 'shared/nav_sprzedaz' %>
+       <% end %>
+<% end %>
 
 <!-- FLASH MESSAGE -->
       <div class="hero-unit">

@@ -16,8 +16,10 @@
     <td><%= contractor.street %>, <%= contractor.code %> <%= contractor.city %> </td>
     <td><%= contractor.pesel %></td>
     <td><%= link_to 'Show', contractor %></td>
-    <td><%= link_to 'Edit', edit_contractor_path(contractor) %></td>
-    <td><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="actions"><%= link_to 'Edit', edit_contractor_path(contractor) %>
+      <a href="http://localhost:3000/e-sklep/admin/products/sok-malinowy/edit" class="edit icon_link with-tip icon-edit no-text" data-action="edit" title="Edycja"></a>
+    </td>
+    <td class="actions"><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

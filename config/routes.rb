@@ -3,45 +3,25 @@ Trusk::Application.routes.draw do
 
 
   resources :categories
-
-
   resources :order_items do
     resources :orders
   end
-
-
   resources :orders
-
-
   resources :delivery_products do
     resources :deliveries
   end
-
-
   resources :deliveries 
-
-
   resources :products
-
-
   resources :units
-
-
   resources :spree_prototypes
-
-
   resources :prototypes
-
-
   resources :contractors
 
-
- 
   match '/magazyn/pz' => 'deliveries#new'
-  match 'magazyn/wz'  => 'orders#new'
+  match '/magazyn/wz'  => 'orders#new'
 
   match '/magazyn/pz/:id'  => 'magazine#pz', :as => 'pz_magazine'
-  match 'magazyn/wz'  => 'magazine#wz'
+  match '/magazyn/wz'  => 'magazine#wz'
   match '/:modul' => 'application#index', :as => 'modul'
   match '/deliveries/:id/confirm' => 'deliveries#confirm', :as => 'confirm_delivery'
   match '/orders/:id/confirm' => 'orders#confirm', :as => 'confirm_order'

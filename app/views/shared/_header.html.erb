@@ -2,6 +2,9 @@
   <div class="navbar-inner">
     <div class="container">
       <%= link_to "Trusk", '/', id: "logo" %>
+      <% if user_signed_in? %>
+        <%= link_to "#MODUŁY", modul_path('moduly'), class: "nav" %> 
+        <% end %>
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Sklep", 'e-sklep' %></li>

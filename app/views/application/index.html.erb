@@ -1,24 +1,39 @@
 <% if user_signed_in? %>
 <!-- MAGAZYN -->
-	<% if session[:modul]== 'magazyn' %>
-		<ul class="front-list">
+	<% case session[:modul]
+         when 'zaopatrzenie' %>
+         	<ul class="front-list">
+				<li><a href="/contractors">kontrachenci</a></li>
+				<li><a href="/products">produkty</a></li>
+				<li><a href="/magazyn/pz">przyjecie towaru</a></li>
+			</ul>
+       <% when 'produkcja' %>
+	       <ul class="front-list">
+				<li><a href="/products">specyfikacja</a></li>
+				<li><a href="/#">zlecenia</a></li>
+				<li><a href="/#">stany magazynowe</a></li>
+				<li><a href="/#">kartoteki</a></li>
+			</ul>
+
+        <% when 'sprzedaz' %>
+          <ul class="front-list">
 			<li><a href="/contractors">kontrachenci</a></li>
 			<li><a href="/products">produkty</a></li>
-			<li><a href="/magazyn/pz">przyjecie towaru</a></li>
 			<li><a href="/magazyn/wz">wydanie towaru</a></li>
 		</ul>
-	<% elsif %>
-<!-- HOME -->
-		<ul class="front-list">
-			<li><%= link_to 'Magazyn', modul_path('magazyn') %></li>
+ 	<%	else %>
+ 			<ul class="front-list">
+ 			<li><%= link_to "zaopatrzenie", modul_path('zaopatrzenie') %></li>
 			<li><a href="/produkcja"><i></i>Produkcja</a></li>
-			<li><a href="/e-sklep/admin"><i></i>Sklep-Admin</a></li>
-			<li><a href="/kartoteki"><i></i>Kartoteki</a></li>
-			<li><a href="/raporty"><i></i>Raporty</a></li>
-			<li><a href="/administrator"><i></i>Administrator</a></li>	
+			<li><a href="/sprzedaz"><i></i>Sprzedaz</a></li>
+			<li><a href="/e-sklep/admin"><i></i>Sklep-Admin</a></li>	
 		</ul>
+      <% end %>
 
-	<% end %>
+		
+	
+<!-- HOME -->
+		
 
 <% else %>
 <h1>Trusk</h1>
