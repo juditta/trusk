@@ -1,0 +1,29 @@
+<h1>Listing specyfications</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Type specific</th>
+    <th>Specific</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @specyfications.each do |specyfication| %>
+  <tr>
+    <td><%= specyfication.product_id %></td>
+    <td><%= specyfication.type_specific_id %></td>
+    <td><%= specyfication.specific_id %></td>
+    <td><%= specyfication.quantity %></td>
+    <td><%= link_to 'Show', specyfication %></td>
+    <td><%= link_to 'Edit', edit_specyfication_path(specyfication) %></td>
+    <td><%= link_to 'Destroy', specyfication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Specyfication', new_specyfication_path %>

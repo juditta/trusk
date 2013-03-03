@@ -11,13 +11,13 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :vat
       t.integer :barcode
       t.integer :expiration_date
-      t.decimal :quantity_price
-      t.decimal :retial_price
-      t.decimal :price_a
-      t.decimal :price_b
-      t.decimal :state_min
-      t.decimal :state_max
-      t.decimal :state
+      t.decimal :quantity_price, :precision => 8, :scale => 2, :null => false
+      t.decimal :retial_price,   :precision => 8, :scale => 2, :null => false
+      t.decimal :price_a,        :precision => 8, :scale => 2, :null => false
+      t.decimal :price_b,        :precision => 8, :scale => 2, :null => false
+      t.decimal :state_min,      :precision => 8, :scale => 2, :null => false
+      t.decimal :state_max,      :precision => 8, :scale => 2, :null => false
+      t.decimal :state,          :precision => 8, :scale => 2, :null => false
       t.integer :spree_products_id
 
       t.timestamps

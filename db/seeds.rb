@@ -1,9 +1,41 @@
+# TYPE_SPECIFIC
+TypeSpecific.create([
+	{ name: 'material' }, #1
+	{ name: 'material' }, 
+	{ name: 'material' }, 
+	{ name: 'stanowisko' }, #4
+	{ name: 'sprzet' }, # 5
+	{ name: 'inne' }, #6
+	])
+
+#POSITION 
+Position.create([
+	{ group_position:'', name:'prac-myjnia', rate:'7.00' },
+	{ group_position:'', name:'prac-wyciskarka', rate:'8.00' },
+	{ group_position:'', name:'prac-opakowania', rate:'9.00' },
+	{ group_position:'', name:'prac-butelkowanie', rate:'9.00' }
+	])
+
+#EQUIPMENT
+Equipment.create([
+	{ name:'wyciskarka', rate:'15000.00', symbol:'GTHY-789-YHN-HJI' },
+	{ name:'prasa-butelkowanie', rate:'25000.00', symbol:'GDD-7349-324N-HFI' },
+	{ name:'zmywak', rate:'5000.00', symbol:'453Y-7459-Y45N-H45I' }
+	])
+
+#OTHER
+Other.create([
+	{ name:'prad', symbol:'JHSD-FD7FDS-DF', unit_id:'5', value:'2.00' },
+	{ name:'woda', symbol:'J34-45F54FDS-DF', unit_id:'4', value:'0.04' },
+	])
 
 # UNIT
 Unit.create([
 	{ name: 'szt' },
 	{ name: 'op' },
-	{ name: 'kg' }
+	{ name: 'kg' },
+	{ name: 'm3' },
+	{ name: 'kWh' }
 	])
 
 #CONTRACTOR
@@ -42,9 +74,7 @@ DeliveryProduct.create([
 #CATEGORY PRODUCT
 Category.create([
 	{ name: 'wyrob' },
-	{ name: 'polproduct' },
 	{ name: 'material' },
-	{ name: 'opakowanie' }
 	])
 
 #PRODUCT

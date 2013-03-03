@@ -16,8 +16,8 @@
 <% @products.each_with_index do |product, i| %>
   <tr>
     <td class="center"><%= i+1 %></td>
-    <td><%= product.name %></td>
-    <td><%= product.index %></td>
+    <td><% if product.name? %><%=product.name %><% end %></td>
+    <td><% if product.index? %><%= product.index %><% end %></td>
     <td class="right"><%= product.state %></td>
     <td class="right"><% if product.unit_sale? %>
 

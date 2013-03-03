@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @position.name %>
+</p>
+
+<p>
+  <b>Group position:</b>
+  <%= @position.group_position %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%= @position.rate %>
+</p>
+
+
+<%= link_to 'Edit', edit_position_path(@position) %> |
+<%= link_to 'Back', positions_path %>

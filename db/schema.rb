@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228140840) do
+ActiveRecord::Schema.define(:version => 20130302132733) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -61,6 +61,14 @@ ActiveRecord::Schema.define(:version => 20130228140840) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "equipment", :force => true do |t|
+    t.string   "symbol"
+    t.string   "name"
+    t.decimal  "rate",       :precision => 8, :scale => 2
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
   create_table "order_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "product_id"
@@ -69,6 +77,33 @@ ActiveRecord::Schema.define(:version => 20130228140840) do
     t.decimal  "price",      :precision => 8, :scale => 2, :null => false
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "contractor_id"
+    t.date     "date_order"
+    t.date     "date_delivery"
+    t.integer  "state"
+    t.string   "number"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "others", :force => true do |t|
+    t.string   "symbol"
+    t.string   "name"
+    t.integer  "unit_id"
+    t.decimal  "value",      :precision => 8, :scale => 2
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  create_table "positions", :force => true do |t|
+    t.string   "name"
+    t.integer  "group_position"
+    t.decimal  "rate",           :precision => 8, :scale => 2
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
   create_table "products", :force => true do |t|
@@ -81,16 +116,16 @@ ActiveRecord::Schema.define(:version => 20130228140840) do
     t.integer  "vat"
     t.integer  "barcode"
     t.integer  "expiration_date"
-    t.decimal  "quantity_price"
-    t.decimal  "retial_price"
-    t.decimal  "price_a"
-    t.decimal  "price_b"
-    t.decimal  "state_min"
-    t.decimal  "state_max"
-    t.decimal  "state"
+    t.decimal  "quantity_price",    :precision => 8, :scale => 2, :null => false
+    t.decimal  "retial_price",      :precision => 8, :scale => 2, :null => false
+    t.decimal  "price_a",           :precision => 8, :scale => 2, :null => false
+    t.decimal  "price_b",           :precision => 8, :scale => 2, :null => false
+    t.decimal  "state_min",         :precision => 8, :scale => 2, :null => false
+    t.decimal  "state_max",         :precision => 8, :scale => 2, :null => false
+    t.decimal  "state",             :precision => 8, :scale => 2, :null => false
     t.integer  "spree_products_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.integer  "category_id"
   end
 
@@ -110,6 +145,19 @@ ActiveRecord::Schema.define(:version => 20130228140840) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "specyfications", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "type_specific_id"
+    t.integer  "specific_id"
+    t.decimal  "quantity",         :precision => 8, :scale => 2
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
+
+  add_index "specyfications", ["product_id"], :name => "index_specfications_on_product_id"
+  add_index "specyfications", ["specific_id"], :name => "index_specfications_on_specific_id"
+  add_index "specyfications", ["type_specific_id"], :name => "index_specfications_on_type_specific_id"
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -699,6 +747,14 @@ ActiveRecord::Schema.define(:version => 20130228140840) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "type_specifics", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "type_specifics", ["name"], :name => "index_type_specifics_on_name"
 
   create_table "units", :force => true do |t|
     t.string   "name"

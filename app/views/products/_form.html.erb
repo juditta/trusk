@@ -12,28 +12,39 @@
     </div>
   <% end %>
 
-<div id="conta">
 
-  <ul class="ul-field ul-2">
-   <li>
-    <%= f.label :index %>: 
-    <%= f.text_field :index %><br />
-    <%= f.label :name %>: 
-    <%= f.text_field :name %>
-   </li>
-   <li class="right"><%= f.label :category %>: 
-    <%= f.select :category_id, Category.all.collect {|t| [ t.name, t.id ] }  %><br />
-    <% if @product.category == '1' || @product.category == '2' %>
-      <ul class="product-measture">
-        <li><b>Measure:</b>
-          <%= @product.measure %> 
-          <%= @product.unit_sale %>
+  <ul class="ul-field ul-3">
+
+
+    <% if @product.category_id = '1' || @product.category_id = '2' %>
+      <li>
+        <%= f.label :index %><br /> 
+        <%= f.text_field :index %><br />
+        <b>Measure:  </b> <%= @product.measure %> <%= @product.unit.name %>
+      </li>
+      <li>
+        <%= f.label :name %> <br />
+        <%= f.text_field :name %><br />
+        <b>Value:  <%= number_to_zl(@product.value) %></b>
+
+       </li>
+       <li class="right"><%= f.label :category %>
+        <%= f.select :category_id, Category.all.collect {|t| [ t.name, t.id ] }  %><br /> 
+         <b>Unit price: <%= number_to_zl(@product.medium_price) %></b>  
+      </li>
+    <% else %>
+          <li>
+          <%= f.label :index %><br /> 
+          <%= f.text_field :index %>
         </li>
-        <li><b>Value:</b></li>
-        <li><b>Unit price:</b></li>
-      </ul>
+        <li>
+          <%= f.label :name %> <br />
+          <%= f.text_field :name %>
+         </li>
+         <li class="right"><%= f.label :category %>
+          <%= f.select :category_id, Category.all.collect {|t| [ t.name, t.id ] }  %><br />   
+        </li>
     <% end %>
-  </li>
   </ul>
 <hr>
 
@@ -41,6 +52,11 @@
   <li class="active"><a href="#bar1" class="bar1">Dane</a></li>
   <li><a href="#bar2" class="bar2"></a></li>
   <li><a href="#bar3" class="bar3">Ceny</a></li>
+  <li><a href="#bar2" class="bar2"></a></li>
+  <li><a href="#bar4" class="bar4">E-sklep</a></li>
+   <li><a href="#bar2" class="bar2"></a></li>
+  <li><a href="#bar" class="bar5">Specyfikacja</a></li>
+   
 </ul>
 
 <div id="content">
@@ -73,12 +89,37 @@
     
     </li>
   </ul>
-  <div class="clear"></div>
+<div class="clear"></div>
+  <hr>
+  <p class="actions right">
+    <%= f.submit %>
+  </p>
+
 </div>
 
 <div id="bar3">
 
   <ul class="ul-block product-price-filed">
+      <li class="product-vat">
+       <b>MEDIUM PRICE</b> <br /><%= number_to_zl(@product.medium_price) %><br />
+
+        <%= f.label :vat %>
+        
+       <%= f.select :vat,  [ ['3%','3'], ['8%','8'], ['22%','22']], :prompt => 'vat' %>
+       
+    </li>
+    </li>
+     <li class="product_cal">
+        + 
+    </li>
+      <li class="right">
+      PROFIT<br />
+      <%= number_to_zl(@product.profit(@product.quantity_price)) %><br />
+      <%= number_to_zl(@product.profit(@product.retial_price)) %><br />
+      <%= number_to_zl(@product.profit(@product.price_a)) %><br />
+      <%= number_to_zl(@product.profit(@product.price_b)) %><br />
+    </li>
+    <li class="product_cal">=</li>
     <li class="left">
       <br />
       <%= f.label :price %><br />
@@ -93,12 +134,7 @@
       <%= f.text_field :price_a %><br />
       <%= f.text_field :price_b %><br />
     </li>
-    <li class="product-vat">
-        <%= f.label :vat %><br />
-        +
-       <%= f.select :vat,  [ ['3%','3'], ['8%','8'], ['22%','22']], :prompt => 'vat' %>
-       =
-    </li>
+    
     <li class="right">
       BRUTTO<br />
       <%= number_to_zl(@product.price_brutto) %><br />
@@ -107,21 +143,22 @@
       <%= number_to_zl(@product.price_b_brutto) %><br />
     </li>
   </ul>
+
  <div class="clear"></div>
+ <hr>
+  <p class="actions right">
+    <%= f.submit %>
+  </p>
 </div>
-
-
-<div id="bar4">
+<div div id="bar4">
   <p class="field">
     <%= f.label :spree_products_id %><br />
     <%= f.number_field :spree_products_id %>
   </p>
-</div> 
-
-</div>
-
-<div class="actions right">
+  <div class="clear"></div>
+  <hr>
+  <p class="actions right">
     <%= f.submit %>
-  </div>
-</div>
+  </p>
+</div> 
 <% end %>

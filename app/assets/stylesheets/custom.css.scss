@@ -126,7 +126,7 @@ b{
 }
 hr{
   clear: both;
-  margin: 20px 0;
+  margin: 40px 0;
 }
 .hero-unit{
   padding: 30px;
@@ -250,7 +250,7 @@ text-align: center;
 #bookmarks li a { text-decoration: none; color: #000; text-transform: uppercase; font-weight: bold;}
 #bookmarks li.active { background: url('gfx/butt1.jpg') no-repeat; color: #396B8C; }
 #bookmarks li.active a { color: #396B8C; }
-#bar1, #bar2, #bar3, #bar4, #bar5 { color: #fff; padding: 10px; background: #396B8C; display: none;}
+#bar1, #bar2, #bar3, #bar4, #bar5 {  padding: 10px 0px; background: #EEE; display: none; border-color: $thColor}
 #bar1 { display: block; }
 
 .ul-document-data{
@@ -299,8 +299,8 @@ text-align: center;
 #product_unit_basic, #product_unit_sale, #product_converter, #product_measure, #product_expiration_date 
   {width: 80px;}
 .product-price-filed{
-  width: 80% !important;
   margin: 0 10%;
+  color: #6788A2;
   li
   {
     width: 100px;
@@ -315,10 +315,18 @@ text-align: center;
     }
   }
   .product-vat{
-    text-align: center;
+    text-align: right;
     font-weight: bold;
     width: 120px;
     padding-top: 58px;
+  }
+  .product_cal{
+    padding-top: 95px;
+    width: 70px;
+    font-weight: bold;
+  }
+  .profit{
+    width: 70px;
   }
 }
 .product-field{

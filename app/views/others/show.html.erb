@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Symbol:</b>
+  <%= @other.symbol %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @other.name %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%= @other.unit_id %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @other.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_other_path(@other) %> |
+<%= link_to 'Back', others_path %>

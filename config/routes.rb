@@ -2,6 +2,20 @@ Trusk::Application.routes.draw do
 
 
 
+  resources :others
+
+
+  resources :equipment
+
+
+  resources :positions
+
+
+  resources :specyfications do
+    resources :product
+  end
+
+
   resources :categories
   resources :order_items do
     resources :orders
@@ -11,7 +25,7 @@ Trusk::Application.routes.draw do
     resources :deliveries
   end
   resources :deliveries 
-  resources :products
+  resources :products 
   resources :units
   resources :spree_prototypes
   resources :prototypes
@@ -25,6 +39,7 @@ Trusk::Application.routes.draw do
   match '/:modul' => 'application#index', :as => 'modul'
   match '/deliveries/:id/confirm' => 'deliveries#confirm', :as => 'confirm_delivery'
   match '/orders/:id/confirm' => 'orders#confirm', :as => 'confirm_order'
+  match '/specyfications/new/:idtype/:idsp' => 'specyfications#new', :as => 'new_specific_idtype_idsp'
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.

@@ -1,0 +1,55 @@
+<table class="table-list">
+  <tr>
+    <th>Lp</th>
+    <th>Type specific</th>
+    <th>Specific</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+    <th>Cost</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @specyfications.each_with_index do |specyfication, i| %>
+  <tr>
+    <td class="center"><%= i+1 %></td>
+    
+    <%
+    typespecific=specyfication.type_specific.name
+    %>
+    <%
+    case specyfication.type_specific_id
+    when 1
+      typespecific = specyfication.product.category.name
+      specific = specyfication.product.name
+      price_specific=specyfication.product.medium_price
+      unit=specyfication.product.unit.name
+    when 4
+      specific =  specyfication.position.name
+      price_specific=specyfication.position.rate
+      unit="h"
+    when 5
+      specific = specyfication.equipment.name
+      price_specific=specyfication.equipment.rate
+      unit='szt'
+    when 6
+      specific = specyfication.other.name
+      price_specific=specyfication.other.value
+      unit=specyfication.other.unit.name
+    end %>
+
+    <td><%= typespecific %></td>
+    <td><%= specific %></td>
+    <td class="right"><%= number_to_zl(price_specific) %></td>
+    <td class="right"><%= specyfication.quantity %></td>
+    <td class="right"><%= unit %></td>
+    <td class="right"><%= number_to_zl(specyfication.specyfic_subtotal) %></td>
+    <td><%= link_to 'Edit', edit_specyfication_path(specyfication) %></td>
+    <td><%= link_to 'Destroy', specyfication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<h2 class="total">TOTAL: <%= number_to_currency(@product.medium_price) %></h2>
+<br />
+

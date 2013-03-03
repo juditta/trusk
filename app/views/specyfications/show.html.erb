@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @specyfication.product_id %>
+</p>
+
+<p>
+  <b>Type specific:</b>
+  <%= @specyfication.type_specific_id %>
+</p>
+
+<p>
+  <b>Specific:</b>
+  <%= @specyfication.specific_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @specyfication.quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_specyfication_path(@specyfication) %> |
+<%= link_to 'Back', specyfications_path %>

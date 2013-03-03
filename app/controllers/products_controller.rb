@@ -5,11 +5,12 @@ class ProductsController < ApplicationController
   def index
     @products = Product.search(params[:search]).paginate(:per_page => 15, :page => params[:page]) 
     @product = Product.new
-
+    session[:product]= ''
     respond_to do |format|
       format.html
-        format.json { render json: @products }
         format.json { render json: @product }
+        format.json { render json: @products }
+        
 
     end
   end
@@ -18,7 +19,9 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-
+    session[:product]=params[:id].to_s
+    @specyfication = Specyfication.new
+    @specyfications = Specyfication.where(:product_id => session[:product])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
@@ -39,6 +42,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    session[:product]=params[:id].to_s
   end
 
   # POST /products
@@ -51,7 +55,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render json: @product, status: :created, location: @product }
       else
-        format.html { render action: "index" }
+        format.html { render action: "new" }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end

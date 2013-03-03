@@ -1,3 +1,19 @@
+<span class="back right"><%= link_to 'Back', products_path %></span>
+<div id="conta">
 
 <%= render 'products/form' %>
-<%= link_to 'Back', products_path %>
+
+<div id="bar4">
+
+  <ul class="ul-block">
+  	<li> <%= render '/specyfications/formproduct' %></li>
+  	<li> <%= render '/specyfications/formposition' %></li>
+    <li> <%= render '/specyfications/formequipment' %></li>
+    <li> <%= render '/specyfications/formother' %></li>
+  </ul>
+<p>
+  <%= render '/specyfications/list' %>
+</p>
+  </div>
+</div>
+</div>
